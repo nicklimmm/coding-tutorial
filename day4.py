@@ -125,8 +125,9 @@ print(mylist)
 
 """
 Task: Print the average of [8, 1.7, 12, 6, 4, 21, -6, -1, 8]
-"""
 
+Ans: 5.966666666666667
+"""
 
 # Tuple -> similar to list, but immutable
 mytuple = (1, 2, 3)
