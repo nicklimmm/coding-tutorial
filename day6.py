@@ -119,3 +119,37 @@ Pseudocode for Merge Sort:
 """
 Task: Implement Merge Sort.
 """
+
+# Solution
+def merge_sort(ls):
+    if len(ls) <= 1:
+        return ls
+
+    left_half = merge_sort(ls[:len(ls) // 2])
+    right_half = merge_sort(ls[len(ls) // 2:])
+
+    combined = []
+    i = 0
+    j = 0
+    while True:
+        if i < len(left_half) and j < len(right_half):
+            if left_half[i] < right_half[j]:
+                combined.append(left_half[i])
+                i += 1
+            else:
+                combined.append(right_half[j])
+                j += 1
+        elif i == len(left_half):
+            while j != len(right_half):
+                combined.append(right_half[j])
+                j += 1
+            break
+        else:
+            while i != len(left_half):
+                combined.append(left_half[i])
+                i += 1
+            break
+    
+    return combined
+
+print(merge_sort([5, 7, 2, 0, -6, 4, 2]))
