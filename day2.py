@@ -86,6 +86,8 @@ print(total)
 
 """
 Task: find the sum of 1^2 + 3^2 + 5^2 + ... + 99^2
+
+Ans: 166650
 """
 
 # Print every letter of the string
@@ -128,4 +130,6 @@ for i in range(1, 15):
 
 """
 Task: find the sum of all numbers from 1 to 100000 that is divisible by 17 or not divisible by 13
+
+Ans: 4638040924
 """
