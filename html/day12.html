@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 12</title>
+  </head>
+  <body>
+    <!-- 
+        Outline:
+        1. HTML Attributes
+        2. Element Inspection
+        3. Headers
+        4. HTML Display
+        5. Style Attribute/Inline CSS
+        6. Text Formatting
+        7. Quotations
+        8. Colors
+        9. Background image
+        10. Lists
+    -->
+
+    <!-- HTML Attributes - provides additional information about elements (in key-value pairs) -->
+    <!-- 
+      target:
+      1. _blank - open in a new window or tab 
+      2. _self (default) - open in the same window or tab
+    -->
+    <a href="https://www.youtube.com/" target="_blank">Link to YouTube</a>
+
+    <!-- 
+        Specify URL:
+        1. Absolute
+        2. Relative 
+    -->
+    <img src="/cat.jpg" alt="image of a cat" width="200" height="200" />
+    <img src="/images/dog.jpg" alt="image of a dog" width="400" height="200" />
+
+    <!-- img as a link -->
+    <a href="https://www.wizardingworld.com/">
+      <img src="/images/harrypotter.jpg" alt="harry potter" />
+    </a>
+
+    <!--
+        Headers 
+        1. Don't use headings to make text big or bold
+        2. For headings only
+        3. h1 to h6, decreasing importance
+    -->
+
+    <!-- HTML Display - browser removes any extra spaces and lines -->
+    <!-- Many new lines doesnt affect, only br tags -->
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, sint
+      fugiat sunt modi exercitationem molestiae iste nobis necessitatibus
+      possimus sapiente soluta nam quia ad asperiores explicabo ullam autem
+      voluptatum velit.
+    </p>
+
+    <!-- Style Attribute Syntax - <tagname style="property:value;"> -->
+    <h1 style="color: blue">I am a h1 tag</h1>
+    <h2 style="background-color: #ff0000">h2 tag here</h2>
+    <p style="font-family: Arial">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae iste
+      deserunt hic sunt pariatur libero, quasi labore nobis minus rem
+      consequuntur nemo dicta vitae. Quibusdam laborum consequatur itaque vitae
+      eum.
+    </p>
+    <p style="font-size: 36px">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, rem
+      sed soluta blanditiis, reprehenderit deleniti officiis beatae itaque unde
+      earum quae quam molestias provident! Labore in veniam rem provident
+      consectetur?
+    </p>
+    <p style="text-align: center">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem impedit,
+      quisquam dignissimos facilis aliquid fuga? Officiis quaerat dicta
+      voluptatibus aliquam consequatur amet non ipsam tempore error ullam
+      reprehenderit rem cum quos quisquam fuga hic cupiditate sit sunt eaque
+      eveniet numquam, dolorum natus placeat. Ipsum veritatis porro neque
+      quisquam illo dolorum quae minima ad libero? Dignissimos similique
+      distinctio illo quod, iste voluptatum quos laudantium dolore minus atque
+      praesentium veniam quaerat laboriosam officia asperiores sit provident
+      natus vero ut nobis eligendi consequatur a repudiandae. Impedit laboriosam
+      eveniet voluptatibus soluta sequi dolorem similique inventore neque alias
+      magnam? Facilis quas incidunt repellendus mollitia sunt.
+    </p>
+    <p style="font-weight: bold; font-size: 28px">this is bold text</p>
+
+    <!-- Text Formatting - bold, italic, etc. -->
+    <p>In this text, this is <b>bold</b>. This is <strong>strong</strong></p>
+    <p>
+      This is <i>italic</i>, <em>emphasized</em>, <mark>marked</mark>,
+      <mark style="background-color: aqua">colored marking</mark>
+      <small>small text</small>, <del>deleted</del>, <ins>inserted</ins>,
+      <sub>subscript</sub>, <sup>superscript</sup>
+    </p>
+    <p>H<sub>2</sub>O, 3<sup>2</sup></p>
+
+    <!-- Quotations -->
+    <p>Here is a quote from WWF's website:</p>
+    <blockquote cite="http://www.worldwildlife.org/who/index.html">
+      For nearly 60 years, WWF has been protecting the future of nature. The
+      world's leading conservation organization, WWF works in 100 countries and
+      is supported by more than one million members in the United States and
+      close to five million globally.
+    </blockquote>
+
+    <!-- For short quotes -->
+    <p>
+      WWF's goal is to:
+      <q>Build a future where people live in harmony with nature.</q>
+    </p>
+
+    <!-- Displays the full name when hovered -->
+    <p>
+      The <abbr title="World Health Organization">WHO</abbr> was founded in
+      1948.
+    </p>
+
+    <!-- For physical address, url, email address, phone number, etc. -->
+    <address>
+      ABC School <br />
+      Batam <br />
+      Indonesia
+    </address>
+
+    <!-- For titles of creative work -->
+    <p><cite>Harry Potter</cite> is the best selling book of all time.</p>
+
+    <!-- bdo - Bidirectional override -->
+    <bdo dir="rtl">This text will be written from right to left</bdo>
+
+    <!-- 
+      Colors:
+      1. Named (blue, white, black, etc.)
+      2. RGB/A (red, green, blue, alpha) -> HEX Notation #rrggbb
+      3. HSL/A (hue, saturation, lightness, alpha)
+      (alpha - 0 to 1)
+    -->
+    <p style="background-color: green">named</p>
+    <p style="background-color: #20c929">hex</p>
+    <p style="background-color: rgb(48, 58, 252)">rgb</p>
+    <p style="background-color: #20c92988">hex with a</p>
+    <p style="background-color: rgba(48, 58, 252, 0.5)">rgba</p>
+    <p style="background-color: hsl(61deg, 97%, 59%)">hsl</p>
+
+    <!-- Background Image -->
+    <p style="background-image: url(/images/pattern.png); opacity: 0.5">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores
+      veritatis voluptatibus rem! Adipisci atque numquam minus illo facere
+      provident enim amet harum tempora, at eius placeat dolore assumenda odio
+      voluptatum!
+    </p>
+
+    <!-- 
+      Lists:
+      1. Unordered List
+      2. Ordered List
+      3. Description List
+    -->
+    <ul>
+      <li style="list-style-type: square">item1</li>
+      <li>item2</li>
+    </ul>
+    <ol>
+      <li style="list-style-type: lower-greek">item1</li>
+      <li style="list-style-type: lower-roman">item2</li>
+      <li>item3</li>
+      <li>item4</li>
+      <li style="list-style-type: lower-greek">item5</li>
+    </ol>
+    <dl>
+      <dt>Coffee</dt>
+      <dd>- sweet but energizing drink</dd>
+      <dt>Milk</dt>
+      <dd>- sweet and joyful</dd>
+    </dl>
+  </body>
+</html>
