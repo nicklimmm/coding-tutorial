@@ -5,6 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Day 13</title>
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+    </style>
   </head>
   <body>
     <!-- 
@@ -19,5 +27,180 @@
         8. Responsive Web Design
         9. Computer Code Elements
      -->
+
+    <!-- Table -->
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Avatar</th>
+      </tr>
+      <tr>
+        <td>John</td>
+        <td>20</td>
+        <td>
+          <img
+            src="https://images.unsplash.com/photo-1593642634315-48f5414c3ad9?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+            alt="John's avatar"
+            width="80px"
+            height="80px"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Alice</td>
+        <td>18</td>
+        <td>
+          <img
+            src="https://images.unsplash.com/photo-1621493021355-58d6e6a8bd06?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+            alt="Alice's avatar"
+            width="80px"
+            height="80px"
+          />
+        </td>
+      </tr>
+    </table>
+
+    <table>
+      <!-- caption tag must be inserted immediately after the table tag -->
+      <caption>
+        Grade 9 Students' Scores
+      </caption>
+      <tr>
+        <th rowspan="2">Name</th>
+        <th colspan="2">Scores</th>
+      </tr>
+      <tr>
+        <th>Math</th>
+        <th>Eng</th>
+      </tr>
+      <tr>
+        <td>Bob</td>
+        <td>89</td>
+        <td>87</td>
+      </tr>
+      <tr>
+        <td>Jane</td>
+        <td>90</td>
+        <td>85</td>
+      </tr>
+    </table>
+
+    <!-- 
+        Types of element displays:
+        1. Block - always starts on a new line, 
+                    takes up the full width available, 
+                    has a top and a bottom margin.
+            e.g. <p>, <div>, <h1>, etc.
+        2. Inline - doesn't start on a new line,
+                    takes up only necessary width,
+                    doesn't have a top and a bottom margin.
+            e.g. <a>, <span>, <i>, <b>, <button>, etc.
+     -->
+    <p>Lorem, <a href="#">ipsum</a>.</p>
+    <div>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ab fuga
+      provident odio vel enim mollitia non veritatis commodi voluptate!
+    </div>
+
+    <!-- 
+        Class attr - classify similar elements (can be multiple elements)
+        Id attr - identifies a unique element
+
+        Note: An element can have both class and id attr, different elements can have the same class attr
+
+        Why is this important?
+        1. To specify elements to be styled or inserted JavaScript code
+        2. Differentiate between markups (readability)
+     -->
+    <div class="news">
+      <h1 class="news-header" id="header1">WFH</h1>
+    </div>
+    <div class="news">
+      <h1 class="news-header">NBA</h1>
+      <img
+        src="https://images.unsplash.com/photo-1546519638-68e109498ffc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1067&q=80"
+        alt="basketball"
+        class="news-image"
+        id="basketball"
+        width="400px"
+        height="400px"
+      />
+    </div>
+
+    <!-- iframe tag - to display a web page within a web page -->
+    <iframe
+      src="/day12.html"
+      title="Previous day"
+      width="600px"
+      height="600px"
+      style="border: none"
+    ></iframe>
+
+    <!-- JavaScript in HTML - use <script> tag, commonly placed before the closing body tag-->
+    <script>
+      document.getElementById("header1").innerText = "This is altered by JS"
+      document.getElementById("basketball").style.borderWidth = "5px"
+      document.getElementById("basketball").style.borderColor = "red"
+      document.getElementById("basketball").style.borderStyle = "solid"
+    </script>
+    <!-- noscript - alternate content to be displayed when JS is disables or not supported -->
+    <noscript>Sorry, your browser doesn't support JS</noscript>
+
+    <!-- 
+        head - container for metadata (data about data), metadata is not displayed
+        link - usually for custom fonts, external css, custom fonts
+    -->
+
+    <!-- 
+        Layout Elements:
+        1. header
+        2. nav - navigation links
+        3. section
+        4. article - independent, self-contained
+        5. aside - content that is aside from the content (like a sidebase)
+        6. footer
+        7. details
+        8. summary - a heading for the <details> element
+    -->
+    <header>This is a header</header>
+    <details>
+      <summary>Lorem, ipsum.</summary>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis,
+      excepturi.
+    </details>
+    <aside>asiddeeeeeee</aside>
+    <footer>This is a footer</footer>
+
+    <!-- 
+        Responsive - web pages that look good on all devices
+        
+        1. Image width/max-width 100%
+        2. Picture tag - define different images for different screen sizes
+    -->
+    <picture>
+      <source media="(max-width: 600px)" srcset="cat.jpg" />
+      <source media="(max-width: 1000px)" srcset="images/dog.jpg" />
+      <img src="images/harrypotter.jpg" alt="" />
+    </picture>
+
+    <!-- 
+        Computer Code 
+        1. code
+        2. kbd - keyboard presses
+        3. samp - output program
+        4. var - variable (like in maths)
+    -->
+    <!-- pre -> takes multiple spaces and new lines into account -->
+    <pre>
+    <code>
+    print("Hello World")
+    len(ls)
+    </code>
+    </pre>
+    <p>Save the document by pressing <kbd>CTRL + S</kbd></p>
+    <p>After running my python program:</p>
+    <p><samp>SyntaxError</samp></p>
+    <p>Area of a square is <var>s</var><sup>2</sup></p>
   </body>
 </html>
