@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Day 14</title>
   </head>
   <body>
     <!-- 
@@ -16,6 +16,107 @@
         5. URL
         6. Forms
         7. Media
-     -->
+    -->
+
+    <!-- 
+      Semantic elements - elements with a meaning
+      e.g. header, table, form, section, etc. 
+
+      <div id="header"> -> <header>
+      -->
+
+    <!-- 
+      Conventions:
+      - Declare DOCTYPE
+      - Use lowercase for element and attr names
+      - Close all elements with closing tags
+      - Always quote attr values
+      - Always specify alt, width, and height for img tags
+      - Don't include spaces around equal signs in attrs
+      - Avoid long code lines
+      - Blank lines and indentation
+      - Include <title> tag, good for SEO (search engine optimization)
+      - Include <html>, <body>, <head> tag (can produce errors or crashes if not included)
+      - Close empty elements
+      - Include lang attribute in <html> tag (for SEO)
+      - Include meta data
+      - Setting the viewport in <meta> tag
+      - Use lower case file names (some servers are case-sensitive)
+      - Use index.*** for default file names
+    -->
+
+    <!-- 
+      Entities:
+      - To display (<) or (>), &lt and &gt respectively
+      - Ampersand (&) - &amp
+      - Copyright - &copy
+      - &quot (double quotations "), &apos (apostrophe ')
+      - Euro - &euro
+      - Mathematical symbols - &isin (element of), notin (not an element of),
+                                &sum (sigma symbol)
+      - Greek Letters - start with capital if greek capital, else not
+    -->
+    <p>&copy</p>
+    <p>&lta&gt</p>
+    <p>"asfdasdf"</p>
+    <p>&euro</p>
+
+    <h3>Math symbols</h3>
+    <p>&isin; &notin; &sum;</p>
+
+    <h3>Greek alphabet</h3>
+    <p>&alpha; &Alpha;</p>
+
+    <p>&spades;</p>
+
+    <!-- Emojis -->
+    <p>🙂</p> <!-- Using emoji snippets from VSCode-->
+    <p style="font-size: 40px;">&#128525</p>
+
+    <!--
+      URL - Uniform Resource Locator 
+      e.g. https://html-css-js.com/html/character-codes/
+
+      Scheme - http (less secure), https (more secure, has encryption)
+      Prefix - www
+      Domain - html-css-js
+      Port - 5500
+      Path - path at the server
+      Filename
+    -->
+
+    <!-- Form -->
+    <form action="" method="POST" autocomplete="on">
+      <input type="text" name="text" id="text">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="name" />
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password">
+      <label for="car1">Car1</label>
+      <input type="checkbox" name="car1" id="car1">
+      <label for="car2">Car2</label>
+      <input type="checkbox" name="car2" id="car2">
+      <input type="radio" name="radio" id="radio">
+      <textarea name="tarea" id="tarea" cols="30" rows="10"></textarea>
+      <select name="plants" id="plants" multiple>
+        <option value="plants1">plants1</option>
+        <option value="plants2">plants2</option>
+        <option value="plants3">plants3</option>
+      </select>
+      <button type="button" onclick="alert('HelloWorld')" >PRess me</button>
+      <input type="submit" value="Submit">
+    </form>
+
+    <!-- Media - sound (.mp3, .wav), videos (.mp4) -->
+    <!-- Videos saved in local storage -->
+    <video controls>
+      <source src="movie.mp4" type="video/mp4">
+    </video>
+    <!-- Audio files saved in local storage -->
+    <audio controls autoplay>
+      <source src="audio.mp3" type="audio/mpeg">
+    </audio>
+    <!-- Youtube videos -->
+    <iframe src="https://www.youtube.com/watch?v=N3ap9oc6glQ" ></iframe>
   </body>
 </html>
