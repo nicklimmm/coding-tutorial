@@ -1,0 +1,185 @@
+/* 
+Outline:
+1. Icons
+2. Links
+3. Lists
+4. Tables
+5. Display
+6. Max-width
+7. Position
+*/
+
+/* 
+Icons - Bootstrap Icons, Font Awesome, Google Icons
+*/
+
+#buy {
+    border-radius: 30%;
+    padding: 10px 20px;
+}
+
+i {
+    font-size: 30px;
+}
+
+/* 
+Link
+*/
+
+#link1 {
+    color: darkmagenta;
+    font-size: 24px;
+    font-weight: 700;
+    cursor: grab;
+    /* text-decoration: none; */
+}
+
+/* Link states */
+#link1:hover {
+    color: red;
+}
+
+/* Unvisited link */
+#link1:link {
+    color: green;
+}
+
+/* Visited link */
+#link1:visited {
+    /* color: lightcoral; */
+}
+
+/* When clicked */
+#link1:active {
+    color: red;
+}
+
+
+#button-link {
+    background-color: gold;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 40%;
+}
+
+#button-link:hover {
+    color: slateblue;
+}
+
+
+/* Lists */
+ul {
+    list-style-type: square;
+    list-style-position: inside;
+    /* background-color: aqua; */
+}
+
+ol {
+    list-style-type: upper-latin;
+}
+
+/* Table */
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th {
+    height: 50px;
+    background-color: greenyellow;
+}
+
+td {
+    text-align: center;
+    height: 35px;
+    vertical-align: bottom;
+}
+
+/* Striped styling */
+tr:nth-child(even) {
+    /* background-color: grey; */
+}
+
+/* Divider */
+tr {
+    border-bottom: 1px solid black;
+}
+
+tr:hover {
+    background-color: grey;
+}
+
+table {
+    width: 100%;
+}
+
+
+/* Display */
+#display-a {
+    display: block;
+}
+
+#inline-p {
+    display: inline;
+}
+
+#bluesky {
+    width:"400px";
+    height:"400px";
+
+    /* Hidden takes up space, while none is not */
+    display: none;
+    /* visibility: hidden; */
+}
+
+
+/* max-width */
+#maxw {
+    max-width: 700px;
+    background-color: blue;
+    margin-bottom: 20px;
+}
+
+
+/* 
+Position
+ - static - default, not affected by top, bottom, left, and right properties
+ - relative - positioned relative to its normal position, but the gap left is not filled
+ - fixed - positioned relative to its viewport/screen
+ - absolute - positioned relative to the nearest positioned ancestor (that is relative), the gap is filled
+ - sticky - positioned based on the scroll position
+*/
+
+#container {
+    position: relative;
+}
+
+#d1 {
+    background-color: red;
+}
+
+#d2 {
+    background-color: green;
+    /* position: relative;
+    top: 30px;
+    left: 15px; */
+
+    /* position: fixed;
+    bottom: 30px;
+    right: 40px; */
+
+    position: absolute;
+    top: 30px;
+    left: 15px;
+
+    /* position: sticky;
+    top: 60px; */
+    z-index: -1;
+
+}
+
+#d3 {
+    background-color: blue;
+}
