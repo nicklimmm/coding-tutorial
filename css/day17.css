@@ -1,0 +1,247 @@
+/* 
+Outline:
+1. Overflow
+2. Float
+3. Inline-block
+4. Align
+5. Combinators
+6. Pseudo-class
+7. Pseudo-element
+8. Opacity
+*/
+
+/* 
+Overflow - specifies whether to clip the content or to add
+            scrollbars when the content of an element is 
+            too big to fit in the specified area
+*/
+
+#oflow {
+    background-color: chartreuse;
+    width: 160px;
+    height: 400px;
+
+    /* Default value */
+    /* overflow: visible */ 
+
+    /* overflow: scroll; */
+    /* overflow: hidden; */
+
+    /* Only adds scrollbar when necessary */
+    /* overflow: auto; */
+
+    /* Overflow in x or y-direction */
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+/* 
+Float - specifies how an element should float
+
+Can be used to wrap text around images
+*/
+#post {
+    border: 2px solid black;
+    margin: 0 20px;
+    padding: 0 30px;
+
+    /* Can be used if the floating element overflows */
+    overflow: auto;
+}
+
+#sky {
+    height: 200px;
+    width: 200px;
+    margin: 0 20px;
+    /* float: right; */
+    float: left;
+}
+
+#caption {
+    text-align: justify;
+}
+
+/* 
+Inline-block - inline, but allowed to set the width and height of an element
+*/
+#inline-block {
+    display: inline-block;
+    background-color: grey;
+    width: 100px;
+    height: 200px;
+}
+
+/* Align */
+
+/* Horizontal center block elements */
+#align-container {
+    position: relative;
+}
+
+#align-div {
+    background-color: fuchsia;
+    width: 70%;
+
+    /* Align div */
+    margin: auto;
+    /* Align text */
+    text-align: center;
+}
+
+/* Horizontally center img */
+#align-img {
+    width: 400px;
+    height: 400px;
+
+    /* Inline elements cannot have margins */
+    display: block;
+    margin: auto;
+}
+
+/* Left or right align */
+#right-div {
+    background-color: hotpink;
+    width: 60%;
+
+    /* 1st solution */
+    /* position: absolute; */
+    /* Right align */
+    /* right: 0; */
+
+    /* Left align */
+    /* left: 0; */
+
+
+    /* 2nd solution */
+    float: right;
+}
+
+/* Vertically center */
+#vert-center {
+    border: 2px solid black;
+    text-align: center;
+
+    /* 1st solution */
+    /* padding: 50px 0; */
+
+    /* 2nd solution (only for 1 line texts) */
+    /* height: 400px; */
+    /* line-height: 400px; */
+}
+
+#transform-container {
+    background-color: aqua;
+    position: relative;
+    height: 400px;
+}
+
+#transform-center {
+    /* 3rd solution */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#flex-total-center {
+    border: 2px solid black;
+    height: 200px;
+
+    /* 4th solution, best imo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Combinators - selects elements with certain relationships */
+
+/* Descendant selector (space) - also applies deeply (anything wrapped by the parent) */
+#desc-sel {
+    background-color: aqua;
+}
+
+#desc-sel p {
+    background-color: red;
+}
+
+/* Child selector (>) - only applies to direct children */
+#child-sel {
+    background-color: aqua;
+}
+#child-sel > p {
+    background-color: red;
+}
+
+/* Adjacent sibling selector (+) - only applies to the immediate following element */
+#adj-sibl {
+    background-color: gold;
+}
+
+#focus + p {
+    text-decoration: line-through;
+}
+
+/* General sibling selector (~) - applies to all elements following it in the same generation (siblings) */
+#gen-sibl {
+    background-color: gold;
+}
+
+#focus2 ~ p {
+    text-decoration: line-through;
+}
+
+
+/* 
+Pseudo-class - a special state of an element
+
+Notable ones: hover, first-child, last-child, not, nth-child
+Full: https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
+*/
+div.cl1:hover {
+    background-color: red;
+}
+
+p.cl1:hover {
+    background-color: blueviolet;
+}
+
+.cl1:not(#special) {
+    text-decoration: line-through;
+}
+
+/* 
+Pseudo-elements - specified parts of an element 
+
+Notable ones: after, before, first-letter, first-line
+Full: https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements
+*/
+#el1::first-line {
+    color: firebrick;
+    font-variant: small-caps;
+}
+
+#el2::first-letter {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+/* Insert content after the element */
+#el3::after {
+    content: url(images/bluesky.jpg);
+}
+
+/* Opacity - transparency of element (0 to 1) */
+#opsky {
+    height: 200px;
+    width: 200px;
+}
+
+#opsky:hover {
+    opacity: 0.1;
+}
+
+#opp:hover {
+    opacity: 0.2;
+    cursor: crosshair;
+}
