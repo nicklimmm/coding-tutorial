@@ -1,0 +1,130 @@
+/* 
+Outline: 
+1. Navigation Bar 
+2. Dropdowns
+3. Image Gallery
+4. Attribute Selectors
+*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* Navbar */
+nav {
+    background-color: #121212;
+    color: #e9e9e9;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a { 
+    display: inline-block;
+    color: #e9e9e9;
+    text-decoration: none;
+    margin: 10px 10px;
+}
+
+nav li:hover {
+    background-color: #303030;
+}
+
+nav #active {
+    background-color: #009900;
+}
+
+nav #left {
+    float: right;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #303030;
+    min-width: 140px;
+    box-shadow: 5px 6px 9px -3px rgba(0,0,0,0.28);
+}
+
+.dropdown-content li {
+    display: block;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Image Gallery */
+.gallery {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    display: inline-block;
+    border: 1px solid grey;
+    margin: 5px 10px;
+}
+
+.card-image {
+    width: 100%;
+    height: 150px;
+}
+
+.card-desc {
+    text-align: center;
+    margin: 5px 0;
+}
+
+/* 
+Attribute Selectors - selects elements with a certain attribute value
+
+Syntax - [attr="value"]
+*/
+
+/* Selects with the specified attr */
+p[expand] {
+    background-color: #009900;
+}
+
+/* Selects with attr and value */
+a[target="_blank"] {
+    color: yellowgreen;
+}
+
+/* Selects that starts with value */
+p[type^="flower"] {
+    background-color: coral;
+}
+
+/* Selects that ends with value */
+p[type$="cool"] {
+    text-align: center;
+}
+
+/* Selects that contains the word "value" */
+p[type~="pot"] {
+    border: 3px solid black;
+}
+
+/* Selects that contains "value" in its value */
+p[type*="pot"] {
+    color: white;
+}

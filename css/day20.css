@@ -1,0 +1,275 @@
+/* 
+Outline:
+1. Forms
+2. Basic Website Layout
+3. Units
+4. Specificity
+5. !important statement
+*/
+
+/* Forms */
+form {
+    margin: 10px 10px;
+    padding: 10px 20px;
+    border: 1px solid black
+}
+
+form label {
+    display: block;
+}
+
+form input {
+    width: 100%;
+    padding: 5px 8px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+form textarea {
+    width: 100%;
+    padding: 5px 8px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+/* Website Layout */
+.content {
+    padding: 0 15px;
+}
+
+.side-content .links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.links a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    border-bottom: 2px solid black;
+}
+
+.links a:hover {
+    color: darkcyan;
+}
+
+.side-content {
+    width: 25%;
+    float: left;
+    padding-right: 10px;
+}
+
+.main-content {
+    display: inline-block;
+    width: 75%;
+}
+
+/* Form input with icon */
+form input[name="email"] {
+    background-image: url("images/gmail.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 35px;
+}
+
+form input:focus-visible {
+    outline: none;
+    border-width: 2px;
+    border-color: #009900;
+}
+
+form select {
+    width: 100%;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+
+form select:focus-visible {
+    outline: none;
+    border-width: 2px;
+    border-color: #009900;
+}
+
+form textarea {
+    width: 100%;
+    padding: 5px 8px;
+    border-radius: 5px;
+
+    /* To disable resizing */
+    resize: none;
+}
+
+form textarea:focus-visible {
+    outline: none;
+    border-width: 2px;
+    border-color: #009900;
+}
+
+form .form-group {
+    margin: 10px 0;
+}
+
+form button {
+    width: 100%;
+    padding: 5px 0;
+    background-color: #009900;
+    color: #e9e9e9;
+
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+/* 
+Units:
+1. Absolute - fixed (px, cm, mm, in)
+2. Relative - relative to another length property (%, em, rem, vw, vh, vmin, vmax)
+
+Relative to:
+% -> parent element
+em -> font-size of the element
+rem -> font-size of the root element (html)
+vw -> 1% of browser width
+vh -> 1% of browser height
+vmin -> 1% of browser's smaller dimension
+vmax -> 1% of browser's larger dimension
+*/
+
+/* 
+Specificity hierarchy (highest to lowest):
+1. Inline styles
+2. Id
+3. Classes, attributes and pseudo-classes
+4. Elements and pseudo-elements
+
+Tricks to calculate specificity:
+1. Start counting from 0
+2. Add
+    - 1000 for inline styling
+    - 100 for id
+    - 10 for class, attribute, pseudo-class
+    - 1 for element, pseudo-element
+3. Compare and the greater value has the higher specificity
+
+If selectors have the same specificity, the latest rule counts
+
+e.g. .cls #id -> 110
+     #id -> 100
+*/
+
+#id {
+    background-color: #121212;
+}
+
+.cls #id {
+    background-color: #009900;
+}
+
+.cls #same {
+    background-color: #303030;
+}
+
+.cls #same {
+    background-color: pink;
+}
+
+/* 
+!important statement - override all previous styling rules for a specific property on that element (add more importance)
+
+WARNING: use this as minimal as possible (best to have none) and use it wisely
+*/
+
+.cls #important {
+    background-color: #303030 !important;
+}
+
+.cls #important {
+    background-color: pink;
+}
+
+
+/* Taken from day19.css */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+nav {
+    background-color: #121212;
+    color: #e9e9e9;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a { 
+    display: inline-block;
+    color: #e9e9e9;
+    text-decoration: none;
+    margin: 10px 10px;
+}
+
+nav li:hover {
+    background-color: #303030;
+}
+
+nav #active {
+    background-color: #009900;
+}
+
+nav #left {
+    float: right;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #303030;
+    min-width: 140px;
+    box-shadow: 5px 6px 9px -3px rgba(0,0,0,0.28);
+}
+
+.dropdown-content li {
+    display: block;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.gallery {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    display: inline-block;
+    border: 1px solid grey;
+    margin: 5px 10px;
+}
+
+.card-image {
+    width: 100%;
+    height: 150px;
+}
+
+.card-desc {
+    text-align: center;
+    margin: 5px 0;
+}
