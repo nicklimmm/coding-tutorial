@@ -1,0 +1,358 @@
+/*
+Outline:
+1. Border Images
+2. Background
+3. Color Keywords
+4. Gradients
+5. Shadow Effects
+6. Text Effects
+*/
+
+/* Border Images */
+.cool-border {
+    border: 20px solid transparent;
+    padding: 15px;
+    border-image: url("images/border.png") 30 round;
+}
+
+/* Background */
+.background {
+    background-image: url("images/dog.jpeg"), url("images/wall.png");
+    background-position: bottom right, bottom left;
+    background-repeat: no-repeat, repeat;
+    background-size: 200px 100px, auto;
+
+    /* shorthand (pathurl position repeat) */
+    /* background: url("images/dog.jpeg") bottom right no-repeat, url("images/wall.png") top left repeat; */
+
+    height: 300px;
+    margin: 10px 50px;
+}
+
+/* Full size background image */
+html {
+    background: url("images/wall2.jpeg") repeat fixed;
+    /* background-size: cover; */
+}
+
+/* Color keywords */
+section#color {
+    background-color: #e9e9e9;
+    margin: 10px 40px;
+    padding: 7px 20px;
+}
+
+.color-key {
+    color: rebeccapurple;
+    /* currentColor follows the text color */
+    border: 2px solid currentColor;
+}
+
+.color-key p {
+    border: 2px solid #009900;
+    margin: 5px 20px;
+}
+
+.color-key p span {
+    /* inherit passes the identical css property from parent to child */
+    border: inherit;
+}
+
+/* 
+Gradients - linear or radial
+
+
+Syntax: 
+If no direction is specified, it is top to bottom by default
+background-image: linear-gradient(direction, color-stop1, color-stop2, ...)
+
+If no shape is specified, the shape will be ellipse
+background-image: radial-gradient(shape size at position, start-color, ..., last-color)
+
+Tips: Use online css gradient generator if your gradient is complex
+*/
+
+.grad {
+    /* Linear Gradient */
+    /* background-image: linear-gradient(to right,red, yellow); */
+    /* background-image: linear-gradient(to top left,red, yellow); */
+    /* background-image: linear-gradient(to top left,red, yellow); */
+
+    /* Degrees (clockwise direction) - 0deg 6 o'clock,  90deg 9 o'clock,  180deg 12 o'clock,  270deg 3 o'clock */
+    /* background-image: linear-gradient(90deg,red, orange, yellow, green, blue, indigo, violet); */
+
+    /* Fading effect */
+    /* background-image: linear-gradient(to right, rgba(255, 0, 0, 1), rgba(255, 0, 0, 0)); */
+
+    /* repeating-linear-gradient */
+    /* background-image: repeating-linear-gradient(red, yellow 10%, green 20%); */
+
+    /* Radial Gradient */
+    /* background-image: radial-gradient(red, yellow, green); */
+    /* background-image: radial-gradient(red, yellow 15%, green 60%); */
+    /* background-image: radial-gradient(circle, red, yellow, green); */
+
+    /* repeatin-radial-gradient */
+    /* background-image: repeating-radial-gradient(circle, red, yellow 10%, green 15%); */
+    background: rgb(0,140,255);
+    background: linear-gradient(139deg, rgba(0,140,255,1) 21%, rgba(0,255,114,1) 100%);
+
+    height: 200px;
+    margin: 20px 20px;
+}
+
+/* Shadow Effects */
+#shadow-fx {
+    background-color: white;
+    padding: 10px 20px;
+    font-size: 26px;
+    text-align: center;
+
+    /* Horizontal Vertical Blue Color */
+    /* text-shadow: 2px 2px 5px red; */
+
+    /* Multiple text shadows */
+    /* text-shadow: 2px 2px 5px red, 0 0 3px #0000FF; */
+
+    /* Border to text */
+    color: yellow;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.exhibition {
+    background-color: white;
+    padding: 20px 20px;
+}
+
+.exhibition .work-card {
+    border: 2px solid black;
+    padding: 0 50px;
+    margin: 40px 0;
+
+    /* Elevation/hover effect */
+    box-shadow: 5px 5px 5px grey;
+}
+
+/* Text Effects */
+.text {
+    background-color: white;
+}
+
+.text p {
+    border: 1px solid black;
+    width: 200px;
+    height: 50px;
+
+    /* Cut the overflow text (different words) */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    /* Cut the overflow word (same word) */
+    /* word-wrap: break-word; */
+
+    /* break-all - break at any char; keep-all - break at hyphens */
+    /* word-break: break-all; */
+}
+
+.text div span{
+    writing-mode: vertical-lr;
+}
+
+/* Taken from day20 */
+form {
+    margin: 10px 10px;
+    padding: 10px 20px;
+    border: 1px solid black
+}
+
+form label {
+    display: block;
+}
+
+form input {
+    width: 100%;
+    padding: 5px 8px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+form textarea {
+    width: 100%;
+    padding: 5px 8px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+/* Website Layout */
+.content {
+    padding: 0 15px;
+}
+
+.side-content .links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.links a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    border-bottom: 2px solid black;
+}
+
+.links a:hover {
+    color: darkcyan;
+}
+
+.side-content {
+    width: 25%;
+    float: left;
+    padding-right: 10px;
+}
+
+.main-content {
+    display: inline-block;
+    width: 75%;
+}
+
+/* Form input with icon */
+form input[name="email"] {
+    background-image: url("images/gmail.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 35px;
+}
+
+form input:focus-visible {
+    outline: none;
+    border-width: 2px;
+    border-color: #009900;
+}
+
+form select {
+    width: 100%;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+
+form select:focus-visible {
+    outline: none;
+    border-width: 2px;
+    border-color: #009900;
+}
+
+form textarea {
+    width: 100%;
+    padding: 5px 8px;
+    border-radius: 5px;
+
+    /* To disable resizing */
+    resize: none;
+}
+
+form textarea:focus-visible {
+    outline: none;
+    border-width: 2px;
+    border-color: #009900;
+}
+
+form .form-group {
+    margin: 10px 0;
+}
+
+form button {
+    width: 100%;
+    padding: 5px 0;
+    background-color: #009900;
+    color: #e9e9e9;
+
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+nav {
+    background-color: #121212;
+    color: #e9e9e9;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a { 
+    display: inline-block;
+    color: #e9e9e9;
+    text-decoration: none;
+    margin: 10px 10px;
+}
+
+nav li:hover {
+    background-color: #303030;
+}
+
+nav #active {
+    background-color: #009900;
+}
+
+nav #left {
+    float: right;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #303030;
+    min-width: 140px;
+    box-shadow: 5px 6px 9px -3px rgba(0,0,0,0.28);
+}
+
+.dropdown-content li {
+    display: block;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.gallery {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    display: inline-block;
+    border: 1px solid grey;
+    margin: 5px 10px;
+}
+
+.card-image {
+    width: 100%;
+    height: 150px;
+}
+
+.card-desc {
+    text-align: center;
+    margin: 5px 0;
+}
