@@ -1,0 +1,436 @@
+/* 
+Outline:
+1. 2D Transforms
+2. 3D Transforms
+3. Transitions
+4. Animations
+5. Tooltips
+6. Style Images
+7. Image Reflection
+8. Object fit
+*/
+
+/* 
+2D Transforms
+- translate, rotate, scale, skew, matrix (for simultaneous transformations)
+
+(x, y) -> x+ -> right
+       -> y+ -> down
+(angle) -> in clockwise-direction
+*/
+.trf-2d {
+    background-color: #009900;
+    height: 200px;
+    width: 200px;
+
+    /* transform: translate(100px, 40px); */
+    /* transform: translateX(-10px); */
+    /* transform: rotate(20deg); */
+    /* transform: scale(1.5, 1); */
+    /* transform: scaleY(2); */
+    /* transform: skew(360deg); */
+    /* transform: skew(20deg, 20deg); */
+
+    /* matrix( scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY() )  */
+    transform: matrix(1.5, 0.2, 0.3, 1, 20, 20);
+}
+
+/* 
+3D Transforms
+*/
+.trf-3d {
+    background-color: dodgerblue;
+    margin-top: 100px;
+    height: 200px;
+
+    /* transform: rotateX(180deg); */
+    /* transform: rotateY(140deg); */
+    /* transform: rotateZ(50deg); */
+    /* transform: scaleZ(2); */
+}
+
+/* Transitions - change a property gradually */
+/* 
+Speed timing function 
+- ease - slow start, then fast, then end slow (default)
+- linear - same speed from start to end
+- ease-in - slow start
+- ease-out - slow end
+- ease-in-out - slow start and end
+- cubic-bezier - define your own values
+*/
+
+#transition {
+    margin-top: 20px;
+    background-color: #009900;
+    padding: 7px 10px;
+    /* width: 200px; */
+    transform: rotate(0);
+
+    /* transition: transform 2s, width 2s;
+    transition-property: transform;
+    transition-duration: 2s;
+    transition-timing-function: cubic-bezier(1,.12,0,.93);
+    transition-delay: 1s; */
+
+    /* Shorthand */
+    transition: transform 2s ease-in 0.5s;
+}
+
+#transition:hover {
+    /* width: 400px; */
+    transform: rotate(180deg);
+}
+
+/* Animations - multiple properties, gradual change */
+@keyframes glowing {
+    from {
+        background-color: #121212;
+        font-size: 20px;
+    }
+    to {
+        background-color: orange;
+        font-size: 50px;
+    }
+}
+
+@keyframes disco {
+    0% {
+        background-color: yellowgreen;
+    }
+    25% {
+        background-color: fuchsia;
+    }
+    50% {
+        background-color: darkturquoise;
+    }
+    75% {
+        background-color: lime;
+    }
+    100% {
+        background-color: gold;
+    }
+}
+
+#animation {
+    margin: 40px;
+    height: 200px;
+    width: 200px;
+
+    /* animation-name: glowing; */
+    /* animation-name: disco;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in;
+    animation-fill-mode: both; */
+
+    /* Shorthand */
+    animation: disco 2s linear 2s infinite alternate both;
+}
+
+/* Tooltips */
+.tooltip {
+    position: relative
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+}
+
+.tooltip-text {
+    border: 2px solid black;
+    background-color: black;
+    padding: 10px;
+    color: white;
+    visibility: hidden;
+    position: absolute;
+}
+
+.tooltip #tooltip-bottom::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+#tooltip-bottom {
+    top: 150%;
+    right: 50%;
+    margin-right: -50%;
+}
+
+/* Style Images */
+#style-image {
+    max-width: 100%;
+    /* auto to maintain aspect ratio */
+    height: auto;
+
+    /* filter */
+    /* filter: grayscale(100%); */
+
+}
+#style-image:hover {
+    /* Flip image */
+    transform: scaleX(-1);
+}
+
+/* 
+Image Reflection 
+- fill - resized to fill the given dimension, does not preserve aspect ratio
+- contain - resized to fit the given dimension, preserve aspect ratio
+- cover - fills the given dimension, preserves aspect ratio and clipped to fit
+*/
+#image-refl {
+    max-width: 100%;
+    height: 200px;
+    -webkit-box-reflect: right;
+}
+
+#obj-img {
+    border: 2px solid black;
+    width: 200px;
+    height: 300px;
+    object-fit: fill;
+}
+
+
+/* Below taken from day21 */
+.cool-border {
+    border: 20px solid transparent;
+    padding: 15px;
+    border-image: url("images/border.png") 30 round;
+}
+
+.grad {
+    background: rgb(0,140,255);
+    background: linear-gradient(139deg, rgba(0,140,255,1) 21%, rgba(0,255,114,1) 100%);
+
+    height: 200px;
+    margin: 20px 20px;
+}
+
+#shadow-fx {
+    background-color: white;
+    padding: 10px 20px;
+    font-size: 26px;
+    text-align: center;
+    color: yellow;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.exhibition {
+    background-color: white;
+    padding: 20px 20px;
+}
+
+.exhibition .work-card {
+    border: 2px solid black;
+    padding: 0 50px;
+    margin: 40px 0;
+
+    /* Elevation/hover effect */
+    box-shadow: 5px 5px 5px grey;
+}
+
+form {
+    margin: 10px 10px;
+    padding: 10px 20px;
+    border: 1px solid black
+}
+
+form label {
+    display: block;
+}
+
+form input {
+    width: 100%;
+    padding: 5px 8px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+form textarea {
+    width: 100%;
+    padding: 5px 8px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+/* Website Layout */
+.content {
+    padding: 0 15px;
+}
+
+.side-content .links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.links a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    border-bottom: 2px solid black;
+}
+
+.links a:hover {
+    color: darkcyan;
+}
+
+.side-content {
+    width: 25%;
+    float: left;
+    padding-right: 10px;
+}
+
+.main-content {
+    display: inline-block;
+    width: 75%;
+}
+
+/* Form input with icon */
+form input[name="email"] {
+    background-image: url("images/gmail.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-left: 35px;
+}
+
+form input:focus-visible {
+    outline: none;
+    border-width: 2px;
+    border-color: #009900;
+}
+
+form select {
+    width: 100%;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+
+form select:focus-visible {
+    outline: none;
+    border-width: 2px;
+    border-color: #009900;
+}
+
+form textarea {
+    width: 100%;
+    padding: 5px 8px;
+    border-radius: 5px;
+
+    /* To disable resizing */
+    resize: none;
+}
+
+form textarea:focus-visible {
+    outline: none;
+    border-width: 2px;
+    border-color: #009900;
+}
+
+form .form-group {
+    margin: 10px 0;
+}
+
+form button {
+    width: 100%;
+    padding: 5px 0;
+    background-color: #009900;
+    color: #e9e9e9;
+
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+nav {
+    background-color: #121212;
+    color: #e9e9e9;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav a { 
+    display: inline-block;
+    color: #e9e9e9;
+    text-decoration: none;
+    margin: 10px 10px;
+}
+
+nav li:hover {
+    background-color: #303030;
+}
+
+nav #active {
+    background-color: #009900;
+}
+
+nav #left {
+    float: right;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #303030;
+    min-width: 140px;
+    box-shadow: 5px 6px 9px -3px rgba(0,0,0,0.28);
+}
+
+.dropdown-content li {
+    display: block;
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.gallery {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    display: inline-block;
+    border: 1px solid grey;
+    margin: 5px 10px;
+}
+
+.card-image {
+    width: 100%;
+    height: 150px;
+}
+
+.card-desc {
+    text-align: center;
+    margin: 5px 0;
+}
