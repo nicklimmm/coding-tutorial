@@ -1,0 +1,276 @@
+/* 
+Outline:
+1. Flexbox (continued)
+2. RWD Viewport 
+3. RWD Grid
+4. RWD Media Query
+5. RWD Images
+6. CSS Frameworks
+*/
+
+/* Flexbox (cont.) */
+
+/* 
+justify-content -> main axis wrt flex lines (same as flex direction)
+align-items -> secondary (opposite as main axis)
+align-content -> align flex lines
+*/
+
+.fb-container {
+  background-color: coral;
+  display: flex;
+  justify-content: center;
+
+  margin: 20px;
+
+  /* Default stretch */
+  /* align-items: center; */
+  align-items: flex-start;
+
+  align-content: flex-start;
+
+  flex-wrap: wrap;
+  height: 600px;
+}
+
+.fb-container div {
+  background-color: white;
+  height: 80px;
+  width: 80px;
+  margin: 10px;
+  text-align: center;
+}
+
+#fi-1 {
+  height: 40px;
+  font-size: 25px;
+}
+
+#fi-2 {
+  height: 120px;
+  font-size: 10px;
+}
+
+.fb-container2 {
+  background-color: darkcyan;
+  display: flex;
+  /* justify-content: center; */
+
+  margin: 20px;
+
+  /* Default stretch */
+  /* align-items: center; */
+  align-items: flex-start;
+
+  align-content: flex-start;
+
+  /* flex-wrap: wrap; */
+  height: 200px;
+}
+
+.fb-container2 div {
+  background-color: white;
+  height: 80px;
+  width: 80px;
+  margin: 10px;
+  text-align: center;
+}
+
+#f1 {
+  /* Default is 0 */
+  order: 2;
+
+  /* flex-grow -> works like ratios, default 0 */
+  flex-grow: 3;
+
+  /* flex-shrink -> how much it will shrink relative to the rest of the flex items */
+  flex-shrink: 0;
+}
+
+#f2 {
+  order: 3;
+  flex-grow: 1;
+}
+
+#f3 {
+  order: 1;
+  flex-grow: 1;
+}
+
+.fb-container3 {
+  background-color: darkgreen;
+  display: flex;
+  /* justify-content: center; */
+
+  margin: 20px;
+
+  /* Default stretch */
+  /* align-items: center; */
+  align-items: flex-start;
+
+  align-content: flex-start;
+
+  /* flex-wrap: wrap; */
+  height: 200px;
+}
+
+.fb-container3 div {
+  background-color: white;
+  height: 80px;
+  width: 80px;
+  margin: 10px;
+  text-align: center;
+}
+
+#f3-3 {
+  height: 160px;
+  /* flex-basis -> initial length of an item */
+  /* flex-basis: 200px; */
+
+  /* Shorthand: flex-grow flex-shrink flex-basis */
+  flex: 0 0 200px;
+}
+
+#f3-1 {
+  /* align-self -> aligns a specific item inside flexbox */
+  align-self: center;
+}
+
+#f3-2 {
+  align-self: flex-end;
+}
+
+/* 
+Responsive Web Design (RWD) -> to look good on all devices
+*/
+
+/* 
+Viewport Rules:
+1. Do NOT use large fixed with elements (use relative units vw, %)
+2. Do NOT let the content rely on a particular viewport width to render well
+    (Can try to use responsive option in Chrome Inspect)
+3. Use media queries to apply different styling for small and large screens
+*/
+
+/* RWD Grid -> usually divided into 12 equal column partitions */
+/* .col-1 {
+  width: 8.33%;
+}
+.col-2 {
+  width: 16.66%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-4 {
+  width: 33.33%;
+}
+.col-5 {
+  width: 41.66%;
+}
+.col-6 {
+  width: 50%;
+}
+.col-7 {
+  width: 58.33%;
+}
+.col-8 {
+  width: 66.66%;
+}
+.col-9 {
+  width: 75%;
+}
+.col-10 {
+  width: 83.33%;
+}
+.col-11 {
+  width: 91.66%;
+}
+.col-12 {
+  width: 100%;
+} */
+
+[class*="col-"] {
+  float: left;
+  border: 1px solid red;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  margin: 0;
+}
+
+.grid-12 {
+  background-color: darkorange;
+  height: 400px;
+}
+
+.mq-grid-12 {
+  background-color: dodgerblue;
+  height: 600px;
+}
+
+/* Full width for mobile phones */
+[class*="col-"] {
+  width: 100%;
+  float: left;
+  border: 1px solid red;
+}
+
+@media only screen and (min-width: 425px) {
+  .col-1 {
+    width: 8.33%;
+  }
+  .col-2 {
+    width: 16.66%;
+  }
+  .col-3 {
+    width: 25%;
+  }
+  .col-4 {
+    width: 33.33%;
+  }
+  .col-5 {
+    width: 41.66%;
+  }
+  .col-6 {
+    width: 50%;
+  }
+  .col-7 {
+    width: 58.33%;
+  }
+  .col-8 {
+    width: 66.66%;
+  }
+  .col-9 {
+    width: 75%;
+  }
+  .col-10 {
+    width: 83.33%;
+  }
+  .col-11 {
+    width: 91.66%;
+  }
+  .col-12 {
+    width: 100%;
+  }
+}
+
+
+/* 
+RWD Images 
+
+Tips: 
+- max-width: 100% (can scale down, but not scale up)
+- height: auto (to maintain aspect ratio)
+*/
+
+/* 
+CSS Frameworks/Libraries 
+- Bootstrap
+- Animate.css (animation)
+*/
