@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 2</title>
+  </head>
+  <body>
+    <!-- 
+        Anchor target: 
+        1. _blank -> open in a new window or tab 
+        2. _self -> default, open in the same tab
+    -->
+    <a href="https://www.youtube.com/" target="_blank"
+      >Click this link to YouTube</a
+    >
+    <a href="https://www.facebook.com/">Click this link to Facebook</a>
+
+    <!-- 
+        Accessing files within a folder
+    -->
+    <img src="images/pisa1.jpeg" alt="" />
+    <img src="images/deep_image/pisa2.jpeg" alt="" />
+
+    <!-- 
+        For headers:
+        1. Don't use header to make a text big or bold
+        2. h1 should be used for 1 time only in a page
+        3. h1 to h6, decrease in importance
+    -->
+
+    <!-- Style HTML Elements -->
+    <h1 style="color: red">Main Title</h1>
+    <h2 style="color: #52ebdb">H2 tag</h2>
+    <p style="font-size: 40px">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestiae
+      impedit ab amet! Consequuntur quisquam cumque deserunt eaque fugiat rerum
+      et?
+    </p>
+    <p style="font-weight: bold; font-size: 40px; color: darkviolet">
+      This is not an h tag
+    </p>
+    <p style="text-align: center">Lorem ipsum dolor sit amet.</p>
+
+    <!--
+        Text Formatting -> useful for formatting specific texts inside an element
+        - <b>, <strong> -> bold
+        - <i>, <em> -> italic
+        - <small> -> smaller text
+        - <mark> -> highlight
+        - <del> -> strikethrough (deleted)
+        - <ins> -> underline (inserted)
+        - <sub> -> subscript
+        - <sup> -> superscript
+    -->
+    <p>
+      Lorem ipsum dolor, sit amet consectetur <b>adipisicing elit</b>.
+      Perspiciatis <strong>error</strong>, ex natus atque facilis at
+      <i>quasi</i>
+      laudantium dicta <em>doloremque</em> magnam <small>omnis</small>,
+      excepturi
+      <mark style="background-color: #52ebdb">quibusdam</mark> accusamus eaque
+      unde architecto id? Ad, ullam. Lorem ipsum <del>dolor</del> sit amet
+      <ins>consectetur</ins> adipisicing elit. Quisquam cupiditate reprehenderit
+      ipsum nemo accusantium. Fugiat possimus natus provident cum facilis?
+    </p>
+    <p>H<sub>2</sub>0, 2<sup>3</sup></p>
+
+    <!-- Quotations -->
+    <p>
+      Quote from Albert Einstein:
+      <!-- Short -->
+      <q>
+        Life is like riding a bicycle. To keep your balance you must keep
+        moving.
+      </q>
+    </p>
+
+    <p>Here is a quote from WHO</p>
+    <!-- Long -->
+    <blockquote cite="https://www.who.int/about/frequently-asked-questions">
+      Any external website may add a hyperlink to the WHO website without
+      requesting permission. However this use must not infringe WHO's
+      intellectual property rights, in particular relating to its name, emblem,
+      copyright or authors' rights. WHO does not normally provide links to
+      external websites unless there is a clear association with WHO's
+      activities.
+    </blockquote>
+
+    <!-- Display full name when hovered -->
+    <p><abbr title="World Health Organization">WHO</abbr> is cool</p>
+
+    <!-- For physical address, url, email address, phone number, etc. -->
+    <address>
+      ABC Company <br />
+      AAA Street 18<br />
+      Tokyo, Japan
+    </address>
+
+    <!-- Bidirectional override -->
+    <p><bdo dir="rtl">Lorem ipsum dolor sit amet.</bdo></p>
+
+    <!-- 
+        Lists:
+        1. Unordered list
+        2. Ordered list
+        3. Description list
+    -->
+    <ul>
+      <li>List 1</li>
+      <li>List 2</li>
+      <li>List 3</li>
+    </ul>
+    <ol>
+      <li>List 1</li>
+      <li>List 2</li>
+      <li>List 3</li>
+    </ol>
+    <dl>
+      <dt>Coffee</dt>
+      <dd>-a cup to refresh your day</dd>
+      <dt>Tea</dt>
+      <dd>-a cup to refresh your day</dd>
+    </dl>
+
+    <!-- Nesting lists -->
+    <ol>
+      <li>Plants</li>
+      <ul>
+        <li>Leaves</li>
+        <li>Flowers</li>
+      </ul>
+      <li>Humans</li>
+      <ul>
+        <li>Hands</li>
+        <ul>
+          <li>Contains many bacteria</li>
+          <li>Has 5 fingers each normally</li>
+        </ul>
+        <li>Legs</li>
+      </ul>
+    </ol>
+
+    <!-- Tables -> rows (horizontal) and columns (vertical) -->
+    <table style="border: 1px solid black">
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+      </tr>
+    </table>
+
+    <table style="border: 1px solid black">
+      <!-- Give table title -->
+      <caption>
+        Class Scores
+      </caption>
+      <tr>
+        <th rowspan="2">Name</th>
+        <th colspan="2">Scores</th>
+      </tr>
+      <tr>
+        <th>Math</th>
+        <th>Chem</th>
+      </tr>
+      <tr>
+        <td>John</td>
+        <td>95</td>
+        <td>95</td>
+      </tr>
+      <tr>
+        <td>Alice</td>
+        <td>90</td>
+        <td>90</td>
+      </tr>
+    </table>
+
+    <!-- 
+        class attr -> classify or group similar elements (can be multiple elements)
+        id attr -> identifies an unique element
+
+        NOTE: an element can have both class and id attr at the same time
+
+        Why is this important?
+        - To specify elements to be targeted by CSS or JS
+        - To increase readability
+    -->
+    <div class="news-article" id="euro-2020-finals">
+      <h3 class="article-header">Euro 2020 Finals</h3>
+      <p class="article-paragraph">Italy Won</p>
+    </div>
+    <div class="news-article" id="euro-2016-finals">
+      <h3 class="article-header">Euro 2016 Finals</h3>
+      <p class="article-paragraph">???? Won</p>
+    </div>
+    <div class="news-article" id="euro-2012-finals">
+      <h3 class="article-header">Euro 2012 Finals</h3>
+      <p class="article-paragraph">???? Won</p>
+    </div>
+
+    <!-- 
+        img size attrs
+        
+        NOTE: If we only specify 1 side, the aspect ratio is maintained
+    -->
+    <img
+      src="images/pisa1.jpeg"
+      alt="Leaning Tower of Pisa"
+      width="300"
+      height="1000"
+    />
+  </body>
+</html>
