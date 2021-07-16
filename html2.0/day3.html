@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 3</title>
+  </head>
+  <body>
+    <!-- <iframe> -> display a web page within a web page -->
+    <iframe
+      src="/day2.html"
+      title="Day 2"
+      width="100%"
+      height="400px"
+      frameborder="0"
+      style="border: 2px solid fuchsia"
+    >
+    </iframe>
+    <h1 id="title">Lorem, ipsum dolor.</h1>
+    <button id="shout-button">Press me to shout</button>
+
+    <!-- <script> -> insert JavaScript -->
+    <script>
+      document.getElementById("title").innerText = "This h1 is changed by JS";
+      document.getElementById("shout-button").onclick = () => {
+        document.getElementById("title").innerText = "Button is clicked";
+      };
+    </script>
+
+    <!-- <noscript> -> alternate content to be displayed when JS is disabled or not supported -->
+    <noscript>
+      Sorry, your browser doesn't support JS. Use it to access this website
+    </noscript>
+
+    <!-- 
+        head -> a place for metadata (data about data)
+        link -> usually to link fonts, CSS, JS
+     -->
+
+    <!-- 
+        Layout Elements:
+        - <header> -> usually contains links, search bar, etc.
+        - <nav> -> navigation links
+        - <section> -> similar with div
+        - <article> -> independent
+        - <aside> -> a content that is aside from the main content
+        - <footer> -> usually contains links, copyright, terms and conditions
+        - <details> -> dropdown-like element
+        - <summary> -> heading for the details element
+      -->
+    <header style="background-color: burlywood">
+      <a href="">Mac</a>
+      <a href="">iPad</a>
+      <a href="">iPhone</a>
+    </header>
+
+    <details>
+      <summary>Recent news on NBA</summary>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quos
+      maiores, unde fuga error voluptate odit similique harum autem blanditiis.
+    </details>
+
+    <section>
+      <img src="cat.jpeg" alt="cat for adoption" />
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, nulla!
+      </p>
+    </section>
+
+    <footer style="background-color: deeppink">
+      <h3>Contact Us</h3>
+      <a href="">WhatsApp</a>
+      <a href="">Email</a>
+      <a href="">YouTube</a>
+    </footer>
+
+    <!-- 
+        Computer Code:
+        - <code> -> to display code in a special manner
+        - <pre> -> takes excess spaces and new lines into account
+        - <samp> -> display output program
+        - <kbd> -> keyboard presses
+        - <var> -> display math variable format
+     -->
+    <pre>
+    <code> 
+    print("Hello World")
+    def func(): 
+        print("I am a function")
+    </code>
+    </pre>
+    <p><samp>SyntaxError</samp></p>
+    <p>Step 3: Save the document by pressing <kbd>CTRL + S</kbd></p>
+    <p><var>Perimeter = 4*s</var></p>
+    <!-- 
+        Semantic elements -> elements with a meaning
+        e.g. <header>, <table>, etc.
+
+        <div id="header"> = <header>
+     -->
+
+    <!-- 
+        Conventions:
+        - Declare DOCTYPE
+        - Use lowercase for element and attr names
+        - Always specify alt attr for <img>
+        - Include <title>, lang for SEO (Search Engine Optimization)
+        - Include <html>, <body>, and <head> to prevent errors
+        - Use lower case file names (some computers or servers are case-sensitive)
+        - Avoid long code lines, give blank lines and indentation for readability
+        - Setting the viewport in <meta> tag
+        - Use index.--- for default file names
+      -->
+
+    <!-- Entities -> to display special characters -->
+    <p>&copy; &lt;p&gt; &euro;</p>
+    <p>&sum;&isin;&ContourIntegral;</p>
+    <p>&alpha;&Alpha;</p>
+    <p>&spades;&clubs;</p>
+
+    <!-- Emoji -> can be used using Emoji Snippets -->
+    <h1>😇</h1> 
+    <h1>&#8986</h1>
+
+    <!-- Forms -->
+    <form action="/loginapi" method="POST" autocomplete="on">
+        <label for="apple-id">Apple ID</label>
+        <input type="text" placeholder="Apple ID" name="apple-id">
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" name="password">
+        <div>
+            <label for="car1">Car 1</label>
+            <input type="checkbox" name="car1" id="car1">
+            <label for="car2">Car 2</label>
+            <input type="checkbox" name="car2" id="car2">
+            <label for="car3">Car 3</label>
+            <input type="checkbox" name="car3" id="car3">
+        </div>
+        <div>
+            <label for="radio1">Car 1</label>
+            <input type="radio" name="radio1" id="radio1">
+            <label for="radio2">Car 2</label>
+            <input type="radio" name="radio2" id="radio2">
+        </div>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <select name="gender" id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <input type="submit" value="Log In">
+    </form>
+
+    <!-- Media -> video (.mp4), audio (.mp3, .wav) -->
+    <audio controls autoplay>
+        <source src="ocean-wave-1.mp3" type="audio/mp3">
+    </audio>
+
+    <video controls width="50%">
+        <source src="Mare - 22183.mp4" type="video/mp4">
+    </video>
+
+    <!-- YouTube Videos -->
+    <iframe src="https://www.youtube.com/watch?v=dQw4w9WgXcQ"></iframe>
+  </body>
+</html>
+<!DOCTYPE html>
