@@ -1,0 +1,24 @@
+#title {
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 5px;
+    text-decoration: underline;
+}
+
+#oflow { 
+    background-color: aqua;
+}
+
+#oflow::first-letter {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+body {
+    margin: 0 200px;
+}
+
+#griffin {
+    display: block;
+    margin: 0 auto;
+}

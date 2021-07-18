@@ -1,0 +1,77 @@
+body {
+    margin: 0 auto;
+    max-width: 700px;
+}
+* {
+    font-family: fantasy;
+}
+
+#link:hover {
+    color: red;
+}
+.card {
+    text-align: center;
+    color: firebrick;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border: 20px solid transparent;
+    padding: 15px;
+    border-image: url("music-note-frame-4620109_640.png") 30 round;
+}
+#piano {
+    color: firebrick;
+    text-align: center;
+    font-family: fantasy;
+    font-size: xx-large;
+    letter-spacing: 5px;
+}
+#paragraph {
+    color: black;
+    text-align: center;
+    font-family: cursive;
+    font-size: medium;
+}
+#paragraph2 {
+    color: rgb(1, 1, 124);
+    text-align: left;
+    font-family: cursive;
+    font-size: medium;
+}
+#piano2 {
+    text-align: center;
+}
+#paragraph3 {
+    color: black;
+    text-align: center;
+    font-family: cursive;
+    font-size: medium;
+}
+#paragraph4 {
+    color: rgb(1, 1, 124);
+    text-align: left;
+    font-family: cursive;
+    font-size: medium;
+}
+#paragraph5 {
+    color: black;
+    text-align: left;
+    font-family: cursive;
+    font-size: medium;
+}
+#paragraph6 {
+    color: firebrick;
+    text-align: center;
+    font-family: cursive;
+    font-size: large;
+}
+#quote {
+    color: black;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: xx-large;
+}
+#beethoven {
+    color: black;
+    text-align: right;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-large;
+}
