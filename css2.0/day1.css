@@ -1,0 +1,153 @@
+/* 
+Syntax 
+
+selector {
+    property: value;
+    ...
+}
+
+Selectors -> by tagname, class name (.), id name (#), universal (*)
+*/
+
+h1 {
+  color: red;
+  background-color: gray;
+}
+
+.colored-p {
+  color: blue;
+}
+
+#achievement-title {
+  font-size: 40px;
+  font-style: italic;
+}
+
+* {
+  text-align: center;
+}
+
+/* 
+Colors
+
+Ways to specify colors:
+- Named (e.g. red, green)
+- RGB -> combination of red, green and blue (e.g. rgb(255, 0, 0))
+- HSL -> hue, saturation, lightness (e.g. hsl(198deg, 76%, 59%))
+- RGBA -> rgb with alpha from 0 (transparent) to 1 (solid) (e.g. rgba(255, 0, 0, 0.3))
+- HSLA -> hsl with alpha from 0 (transparent) to 1 (solid) (e.g. hsla(198deg, 76%, 59%, 0.3))
+- Hex -> rgb with hexadecimal notation (e.g. #45b5e6)
+*/
+#colors {
+  background-color: #ed4e9e;
+}
+
+/* Background */
+#custom-bg {
+  /* background-image: url("greenfield.jpeg");
+  background-repeat: no-repeat;
+  background-position: bottom left; */
+
+  /* Shorthand */
+  background: url("greenfield.jpeg") no-repeat bottom left;
+}
+
+/* Border */
+#nba {
+  /* border-style: dotted; */
+
+  /* Applies border style to each side, starting from top, going clockwise */
+  /* border-style: dashed solid dotted double; */
+
+  /* Applies border style to vertical and horizontal sides */
+  /* border-style: dotted solid; */
+
+  /* Individual sides (border-*side*-*property*) */
+  /* border-left-style: dashed; */
+  /* border-left-width: 20px; */
+
+  /* border-width: 10px;
+  border-color: black; */
+
+  /* Shorthand */
+  border: 10px solid black;
+
+  /* Rounded borders */
+  border-radius: 20px;
+}
+
+/* 
+Box Model:
+- Margin -> space from border outwards (gives space in between elements)
+- Padding -> space in between border and content (gives space inside border)
+*/
+
+#box-model {
+  border: 5px solid red;
+
+  /* If 1 value is given, it will apply to all sides */
+  /* margin: 50px;
+  padding: 35px; */
+
+  /* If 2 values are given, it will apply to vertical and horizontal sides respectively */
+  /* margin: 50px 20px; */
+
+  /* If 4 values are given, it will apply to individual sides (starting from top, clockwise direction) */
+  padding: 50px 20px 0 20px;
+
+  /* Individual sides */
+  padding-top: 100px;
+}
+
+/* 
+Browser Debugger (Chrome in my case) -> best friend for web developers
+
+Open Inspect -> Ctrl + Shift + C / Command + Shift + C / Right click page + click Inspect / F12
+To check box model -> Select Computed section in the bottom
+*/
+
+/* 
+Outline -> outline is positioned outside the border
+*/
+#outline-border {
+  /* outline-style: dashed;
+  outline-width: 5px;
+  outline-color: aqua; */
+
+  /* Distance from border */
+  outline-offset: 25px;
+
+  /* Shorthand */
+  /* outline: 5px dashed aqua; */
+
+  border: 7px solid black;
+}
+
+/* Text */
+#text {
+  margin-top: 50px;
+
+  color: #ed4e9e;
+  text-align: left;
+
+  /* Invert the direction */
+  /* direction: rtl;
+  unicode-bidi: bidi-override; */
+
+  text-decoration: line-through;
+  text-transform: uppercase;
+
+  text-indent: 40px;
+  letter-spacing: 5px;
+  word-spacing: 10px;
+  line-height: 60px;
+
+  /* 
+  Values
+  X (horizontal) -> right (if positive), left (else)
+  Y (vertical) -> down (if positive), up (else)
+  blur
+  color
+    */
+  text-shadow: 5px 5px 5px blue;
+}
