@@ -1,0 +1,115 @@
+/* 
+Fonts -> by default Times New Roman
+
+Main Types of Fonts -> serif, sans serif, monospaced, script, handwriting, etc.
+*/
+p {
+  color: red;
+
+  /* By convention, use fallback fonts (from left to right in priority) */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  font-style: italic;
+  font-weight: 900;
+  font-size: 40px;
+}
+
+/* 
+Google Fonts (https://fonts.google.com/)
+1. Select font, weight, style
+2. Copy link tag to HTML
+3. Copy CSS rules to your CSS file
+*/
+#gfont {
+  font-family: "Zen Tokyo Zoo", cursive;
+}
+
+/* Icons -> from Bootstrap Icons, Font Awesome, Google Icons */
+/* Styling Icons */
+.bi-instagram {
+  color: blue;
+  font-size: 50px;
+}
+
+/* Links/anchor tag */
+#link {
+  color: red;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Apply styling when hover */
+#link:hover {
+  color: blue;
+  font-size: 30px;
+}
+
+/* Visited Link */
+#link:visited {
+  color: pink;
+}
+
+/* When clicked */
+#link:active {
+  background-color: aqua;
+}
+
+.button-link {
+  background-color: #ff69b4;
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  border-radius: 7px;
+}
+
+.button-link:hover {
+  background-color: #50e0b5;
+}
+
+/* List */
+ol {
+  list-style-type: upper-roman;
+}
+
+ul {
+  list-style-type: square;
+
+  /* Specifies the position of the bullet list -> by default outside (in the padding region) */
+  list-style-position: inside;
+}
+
+/* Table */
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+.table-name {
+  border-right: 0px;
+}
+
+.table-score {
+  border-left: 0px;
+}
+
+th {
+  background-color: white;
+}
+
+/* Striped styling */
+tr:nth-child(odd) {
+  background-color: grey;
+}
+
+/* Divider */
+tr {
+  border-bottom: 3px dashed black;
+}
+
+tr:hover {
+  background-color: chartreuse;
+}
