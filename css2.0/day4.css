@@ -1,0 +1,73 @@
+/* Float -> can be used to wrap text around images */
+#nba {
+  float: left;
+  padding-right: 15px;
+  padding-bottom: 10px;
+}
+
+/* Inline-block -> inline, but the width and the height can be set */
+#in-bl {
+  display: inline-block;
+  height: 200px;
+  width: 500px;
+}
+
+/* Align block elements */
+#align {
+  position: relative;
+}
+
+#red-block {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+
+  /* Horizontally center */
+  /* margin: 0 auto; */
+
+  /* Align right */
+  margin: 0 0 0 auto;
+}
+
+#blue-block {
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+
+  /* Align right */
+  position: absolute;
+  right: 0;
+
+  /* Align right alternative */
+  float: right;
+}
+
+#greenfield {
+  /* Center images */
+  display: block;
+  /* margin: 0 auto; */
+}
+
+/* Align using flexbox */
+#big-box {
+  background-color: aqua;
+  height: 300px;
+
+  /* Flexbox */
+  display: flex;
+  /* Align vertically -> flex-start, center, flex-end */
+  align-items: center;
+  /* Align horizontally -> flex-start, center, flex-end  */
+  justify-content: center;
+}
+
+#pink-box {
+  background-color: pink;
+  height: 100px;
+  width: 100px;
+}
+
+/* Combinators -> selects elements with certain relationships, which results in a more specific queries */
+.card-picture {
+  border-radius: 50%;
+}
