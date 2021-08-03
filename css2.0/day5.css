@@ -1,0 +1,141 @@
+/* Combinators -> selects elements with a certain relationship */
+
+/* 
+Descendant selector (space) -> applies deeply
+
+.card p -> selects all p inside .card
+*/
+.agents .card {
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 40px 20px;
+  padding: 20px 20px;
+}
+
+.agents .card-desc {
+  margin-bottom: 0;
+}
+
+.agents .card-left {
+  display: inline-block;
+  width: 25%;
+  height: 165.75px;
+}
+
+.agents .card-right {
+  display: inline-block;
+  margin: 0 20px;
+  width: 65%;
+}
+
+.agents .card-picture {
+  display: block;
+  border-radius: 50%;
+  width: 165.75px;
+  height: auto;
+}
+
+.offers .card {
+  display: inline-block;
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 250px;
+  padding: 20px;
+  margin: 15px;
+}
+
+.offers .card-header {
+  text-align: center;
+}
+
+.offers .card-picture {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Child selector (>) -> applies to direct children */
+#child-sel {
+  background-color: aqua;
+}
+
+#child-sel p {
+  font-weight: bold;
+}
+
+#child-sel > p {
+  background-color: red;
+}
+
+/* Adjacent sibling selector (+) -> applies to the immediate following element at the same level */
+#adj-sib {
+  background-color: bisque;
+}
+
+#adj-sib > #adj + p {
+  background-color: gold;
+}
+
+/* General sibling selector (~) -> applies to all elements following it at the same level */
+#gen-sib {
+  background-color: coral;
+}
+
+#gen-sib > #gen ~ p {
+  background-color: gold;
+}
+
+/* 
+Pseudo-class -> state of an element 
+
+Notable ones: hover, first-child, last-child, not, nth-child
+*/
+.hoverable {
+  height: 200px;
+  background-color: cornsilk;
+}
+
+.hoverable:hover {
+  background-color: red;
+}
+
+.cl1:not(.special) {
+  font-size: 24px;
+  font-style: italic;
+}
+
+.cl1:nth-child(even) {
+  background-color: gray;
+}
+
+/* 
+Pseudo-element -> specified parts of an element 
+Notable ones: after, before, first-letter, first-line
+*/
+.cl2::first-letter {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.cl2::first-line {
+  color: blue;
+}
+
+.cl2::after {
+  content: url(europe.jpeg);
+}
+
+.img-pop > img {
+  position: absolute;
+}
+
+.img-pop > p {
+  display: inline-block;
+  background-color: #a0a0a0;
+}
+
+.img-pop > img:hover {
+  /* z-index: -1; */
+  visibility: hidden;
+}
