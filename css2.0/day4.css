@@ -67,7 +67,6 @@
   width: 100px;
 }
 
-/* Combinators -> selects elements with certain relationships, which results in a more specific queries */
 .card-picture {
   border-radius: 50%;
 }
