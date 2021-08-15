@@ -1,0 +1,19 @@
+@keyframes disco {
+  from {
+    background-color: black;
+    color: white;
+  }
+  to {
+    background-color: white;
+    color: black;
+  }
+}
+
+#anim-div {
+  height: 100px;
+  text-align: center;
+}
+
+.animated {
+  animation: disco 1s linear alternate infinite;
+}
