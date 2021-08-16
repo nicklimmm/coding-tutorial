@@ -1,0 +1,12 @@
+#navigation > div {
+  background-color: darkgoldenrod;
+  height: 100px;
+  margin: 20px;
+}
+
+#nav-focus div {
+  background-color: yellow;
+
+  height: 20px;
+  margin: 20px;
+}
