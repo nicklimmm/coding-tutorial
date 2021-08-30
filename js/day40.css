@@ -1,0 +1,19 @@
+@keyframes blink {
+  from {
+    color: white;
+  }
+  to {
+    rotate: black;
+  }
+}
+
+.blink {
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.selected {
+  color: red;
+}
