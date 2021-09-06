@@ -1,0 +1,26 @@
+#title {
+  background-color: aquamarine;
+  height: 50px;
+}
+
+#api {
+  background-color: coral;
+}
+
+#draggable {
+  background-color: goldenrod;
+  height: 300px;
+  width: 300px;
+}
+
+#droppable {
+  background-color: aqua;
+  height: 300px;
+  width: 300px;
+}
+
+#box {
+  height: 150px;
+  width: 150px;
+  border: 10px solid black;
+}
