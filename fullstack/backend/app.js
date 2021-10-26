@@ -20,6 +20,8 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
+app.post("/login", (req, res) => {});
+
 const server = app.listen(8000, "127.0.0.1", () => {
   const host = server.address().address;
   const port = server.address().port;

@@ -1,0 +1,18 @@
+{
+  "1": {
+    "name": "John",
+    "password": "$2b$10$cq0ixmnHwTqcjAgcUaFWJOrrnCDadn6tCt6FyWgWKsztjhY92gRU2",
+    "email": "john@gmail.com"
+  },
+  "2": {
+    "name": "Alice",
+    "password": "$2b$10$x/8lrCrnlwDA1yhoD7bNzedhZULLw8c/3RxyenmL8wSV9wo1oFzwy",
+    "email": "alice@gmail.com"
+  },
+  "3": {
+    "name": "Dave",
+    "email": "dave@gmail.com",
+    "password": "$2b$10$aUQgo3SPCV4Ym6OHhHBLNOJf/xLGSchkGW69g0CItG3dSw8YDDOZC"
+  },
+  "nextId": 4
+}
