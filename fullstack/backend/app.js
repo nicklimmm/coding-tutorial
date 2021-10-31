@@ -1,7 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const users = require("./users");
+const bcrypt = require("bcrypt");
 const app = express();
+const { readJsonFile } = require("./utils");
 
 app.use(bodyParser.json());
 
@@ -20,7 +22,23 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-app.post("/login", (req, res) => {});
+app.post("/login", async (req, res) => {
+  const data = await readJsonFile("./users.json", "r");
+
+  for (const key in data) {
+    if (data[key].email == req.body.email) {
+      const valid = await bcrypt.compare(req.body.password, data[key].password);
+      if (valid) {
+        res.send({ success: true, name: data[key].name });
+      } else {
+        res.send({ success: false });
+      }
+      return;
+    }
+  }
+
+  res.send({ success: false });
+});
 
 const server = app.listen(8000, "127.0.0.1", () => {
   const host = server.address().address;

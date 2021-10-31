@@ -52,7 +52,7 @@ router.post("/", async (req, res) => {
   data.nextId++;
 
   // Commit changes to the file and close it
-  await fs.writeFile("./users.json", JSON.stringify(data), 0);
+  await fs.writeFile("./users.json", JSON.stringify(data));
 
   res.send(`You are creating a user ${JSON.stringify(req.body, null, 2)}`);
 });
