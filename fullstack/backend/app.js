@@ -1,11 +1,13 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const users = require("./users");
 const bcrypt = require("bcrypt");
-const app = express();
+const { Sequelize } = require("sequelize");
 const { readJsonFile } = require("./utils");
 
-app.use(bodyParser.json());
+const app = express();
+const sequelize = new Sequelize("mysql://user:user@localhost:3306/tutorial");
+
+app.use(express.json());
 
 // Fix CORS
 app.use(function (req, res, next) {
@@ -40,9 +42,16 @@ app.post("/login", async (req, res) => {
   res.send({ success: false });
 });
 
-const server = app.listen(8000, "127.0.0.1", () => {
+const server = app.listen(8000, "127.0.0.1", async () => {
   const host = server.address().address;
   const port = server.address().port;
 
   console.log(`Server listening at http://${host}:${port}`);
+
+  try {
+    await sequelize.authenticate();
+    console.log("Connection has been established successfully.");
+  } catch (error) {
+    console.error("Unable to connect to the database:", error);
+  }
 });
