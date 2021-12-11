@@ -1,11 +1,10 @@
 const express = require("express");
 const users = require("./users");
 const bcrypt = require("bcrypt");
-const { Sequelize } = require("sequelize");
 const { readJsonFile } = require("./utils");
+const db = require("./models");
 
 const app = express();
-const sequelize = new Sequelize("mysql://user:user@localhost:3306/tutorial");
 
 app.use(express.json());
 
@@ -49,9 +48,14 @@ const server = app.listen(8000, "127.0.0.1", async () => {
   console.log(`Server listening at http://${host}:${port}`);
 
   try {
-    await sequelize.authenticate();
+    await db.sequelize.authenticate();
     console.log("Connection has been established successfully.");
+
+    await db.sequelize.sync({ force: true });
+    console.log("All models were synchronized successfully.");
   } catch (error) {
     console.error("Unable to connect to the database:", error);
+  } finally {
+    console.log("------------------\n");
   }
 });
