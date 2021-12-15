@@ -1,5 +1,5 @@
 const express = require("express");
-const users = require("./users");
+const users = require("./routes/users");
 const bcrypt = require("bcrypt");
 const { readJsonFile } = require("./utils");
 const db = require("./models");
@@ -51,7 +51,7 @@ const server = app.listen(8000, "127.0.0.1", async () => {
     await db.sequelize.authenticate();
     console.log("Connection has been established successfully.");
 
-    await db.sequelize.sync({ force: true });
+    await db.sequelize.sync({ alter: true });
     console.log("All models were synchronized successfully.");
   } catch (error) {
     console.error("Unable to connect to the database:", error);

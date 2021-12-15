@@ -7,19 +7,20 @@ const Register = () => {
   const history = useHistory();
   const [response, setResponse] = useState("");
 
-  const createUser = async (values) => {
-    const res = await axios.post("http://127.0.0.1:8000/users", values);
-    setResponse(res.data);
-  };
-
   return (
     <div>
       <h2>Create User</h2>
       <Formik
         initialValues={{ name: "", email: "", password: "" }}
-        onSubmit={(values) => {
-          createUser(values);
-          history.push("/login");
+        onSubmit={async (values) => {
+          try {
+            const res = await axios.post("http://127.0.0.1:8000/users", values);
+            setResponse(res.data);
+            history.push("/login");
+          } catch (err) {
+            console.log(JSON.stringify(err, null, 2));
+            setResponse(err.response.data);
+          }
         }}
       >
         <Form>
