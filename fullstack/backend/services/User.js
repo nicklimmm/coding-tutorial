@@ -1,5 +1,6 @@
 const { db } = require("../models");
 const bcrypt = require("bcrypt");
+const { Op } = require("sequelize/dist");
 
 const hashPassword = async (password) => {
   const saltRounds = 10;
@@ -32,16 +33,72 @@ const register = async (name, email, password) => {
 
   // Hash the password
   password = await hashPassword(password);
+
+  name = name.toLowerCase();
+  email = email.toLowerCase();
+
   const newUser = await db.User.create({ name, email, password });
   console.log(`Created new user: ${newUser.email}`);
 };
 
-const login = (email, password) => {
+const login = async (email, password) => {
   // Make sure that the fields are not empty
+  if (email.length === 0 || password.length === 0) {
+    throw new Error("Field(s) cannot be empty");
+  }
   // Check if email exists
+  const amount = await db.User.count({
+    where: {
+      email: email,
+    },
+  });
+
+  if (amount === 0) {
+    throw new Error("Email is not yet registered");
+  }
+
   // If email exists, check if the password matches
+  const { password: hashedPassword } = await db.User.findOne({
+    attributes: ["password"],
+    where: {
+      email: email,
+    },
+  });
+
+  const isMatch = await bcrypt.compare(password, hashedPassword);
+  if (!isMatch) {
+    throw new Error("Passwoh = await bcrd does not match");
+  }
+
+  console.log(`User ${email} logged in`);
 };
+
+const getAllUsers = async ({ emailKeyword = "%" }) => {
+  if (emailKeyword !== "%") {
+    emailKeyword = `%${emailKeyword}%`;
+  }
+
+  const users = await db.User.findAll({
+    attributes: ["email", "name", "createdAt"],
+    where: {
+      email: {
+        [Op.like]: emailKeyword,
+      },
+    },
+  });
+
+  return users;
+};
+
+// const getUsersByEmail = async (keyword) => {
+//   keyword = keyword.toLowerCase();
+//   const users = await getAllUsers();
+//   return users.filter((user) => user.email.includes(keyword));
+// };
 
 module.exports = {
   register,
+  login,
+  getAllUsers,
+  // getUsersByEmail,
 };

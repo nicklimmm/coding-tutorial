@@ -14,7 +14,10 @@ const Register = () => {
         initialValues={{ name: "", email: "", password: "" }}
         onSubmit={async (values) => {
           try {
-            const res = await axios.post("http://127.0.0.1:8000/users", values);
+            const res = await axios.post(
+              "http://127.0.0.1:8000/auth/register",
+              values
+            );
             setResponse(res.data);
             history.push("/login");
           } catch (err) {

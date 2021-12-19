@@ -1,5 +1,6 @@
 const express = require("express");
 const users = require("./routes/users");
+const auth = require("./routes/auth");
 const bcrypt = require("bcrypt");
 const { readJsonFile } = require("./utils");
 const db = require("./models");
@@ -18,6 +19,7 @@ app.use(function (req, res, next) {
 });
 
 app.use("/users", users);
+app.use("/auth", auth);
 
 app.get("/", (req, res) => {
   res.send("Hello World");

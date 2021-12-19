@@ -8,7 +8,7 @@ import * as Yup from "yup";
 const Login = () => {
   const [response, setResponse] = useState("");
   const history = useHistory();
-  const { auth, setAuth } = useAuth();
+  const { setAuth } = useAuth();
 
   return (
     <div>
@@ -23,17 +23,21 @@ const Login = () => {
           password: Yup.string().required("Required"),
         })}
         onSubmit={async (values) => {
-          const res = await axios.post("http://127.0.0.1:8000/login", values);
-          if (res.data.success) {
+          try {
+            const res = await axios.post(
+              "http://127.0.0.1:8000/auth/login",
+              values
+            );
             setAuth({
               name: res.data.name,
               email: values.email,
               isLoggedIn: true,
             });
-            // Go to home page
+            setResponse(res.data);
             history.push("/");
-          } else {
-            setResponse("Login Unsuccessful");
+          } catch (err) {
+            console.log(JSON.stringify(err, null, 2));
+            setResponse(err.response.data);
           }
         }}
       >
