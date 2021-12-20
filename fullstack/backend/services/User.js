@@ -67,7 +67,7 @@ const login = async (email, password) => {
 
   const isMatch = await bcrypt.compare(password, hashedPassword);
   if (!isMatch) {
-    throw new Error("Passwoh = await bcrd does not match");
+    throw new Error("Password does not match");
   }
 
   console.log(`User ${email} logged in`);
@@ -90,15 +90,8 @@ const getAllUsers = async ({ emailKeyword = "%" }) => {
   return users;
 };
 
-// const getUsersByEmail = async (keyword) => {
-//   keyword = keyword.toLowerCase();
-//   const users = await getAllUsers();
-//   return users.filter((user) => user.email.includes(keyword));
-// };
-
 module.exports = {
   register,
   login,
   getAllUsers,
-  // getUsersByEmail,
 };

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Formik, Field, Form } from "formik";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
+import { useAuth } from "../auth";
 
 const Register = () => {
   const history = useHistory();
   const [response, setResponse] = useState("");
+  const { register } = useAuth();
 
   return (
     <div>
@@ -14,11 +15,7 @@ const Register = () => {
         initialValues={{ name: "", email: "", password: "" }}
         onSubmit={async (values) => {
           try {
-            const res = await axios.post(
-              "http://127.0.0.1:8000/auth/register",
-              values
-            );
-            setResponse(res.data);
+            await register(values.name, values.email, values.password);
             history.push("/login");
           } catch (err) {
             console.log(JSON.stringify(err, null, 2));

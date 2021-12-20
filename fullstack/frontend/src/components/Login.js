@@ -2,13 +2,12 @@ import { useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../auth";
-import axios from "axios";
 import * as Yup from "yup";
 
 const Login = () => {
   const [response, setResponse] = useState("");
   const history = useHistory();
-  const { setAuth } = useAuth();
+  const { login } = useAuth();
 
   return (
     <div>
@@ -24,16 +23,7 @@ const Login = () => {
         })}
         onSubmit={async (values) => {
           try {
-            const res = await axios.post(
-              "http://127.0.0.1:8000/auth/login",
-              values
-            );
-            setAuth({
-              name: res.data.name,
-              email: values.email,
-              isLoggedIn: true,
-            });
-            setResponse(res.data);
+            await login(values.email, values.password);
             history.push("/");
           } catch (err) {
             console.log(JSON.stringify(err, null, 2));

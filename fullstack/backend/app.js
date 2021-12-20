@@ -1,46 +1,32 @@
 const express = require("express");
 const users = require("./routes/users");
 const auth = require("./routes/auth");
-const bcrypt = require("bcrypt");
-const { readJsonFile } = require("./utils");
 const db = require("./models");
+const cors = require("cors");
 
 const app = express();
 
 app.use(express.json());
 
-// Fix CORS
-app.use(function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  next();
-});
+// Handle CORS
+const whitelist = ["http://localhost:3000"]; // lists of allowed domains
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+app.use(cors(corsOptions));
 
+// Routers
 app.use("/users", users);
 app.use("/auth", auth);
 
 app.get("/", (req, res) => {
   res.send("Hello World");
-});
-
-app.post("/login", async (req, res) => {
-  const data = await readJsonFile("./users.json", "r");
-
-  for (const key in data) {
-    if (data[key].email == req.body.email) {
-      const valid = await bcrypt.compare(req.body.password, data[key].password);
-      if (valid) {
-        res.send({ success: true, name: data[key].name });
-      } else {
-        res.send({ success: false });
-      }
-      return;
-    }
-  }
-
-  res.send({ success: false });
 });
 
 const server = app.listen(8000, "127.0.0.1", async () => {
