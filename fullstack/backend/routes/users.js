@@ -8,7 +8,7 @@ router.get("/", async (req, res) => {
     const users = await UserService.getAllUsers({
       emailKeyword: req.query.email,
     });
-    res.json(JSON.stringify(users, null, 2));
+    res.json(users);
   } catch (e) {
     res.send(`Something went wrong`);
   }

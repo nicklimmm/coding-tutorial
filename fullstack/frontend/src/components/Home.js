@@ -3,7 +3,7 @@ import { Formik, Field, Form } from "formik";
 import axios from "axios";
 
 const Home = () => {
-  const [response, setResponse] = useState("");
+  const [response, setResponse] = useState([]);
 
   const getUsers = async ({ email }) => {
     const res = await axios.get(`http://127.0.0.1:8000/users?email=${email}`);
@@ -26,7 +26,20 @@ const Home = () => {
           </Form>
         </Formik>
       </div>
-      {response}
+      <table>
+        <tr>
+          <th>Email</th>
+          <th>Name</th>
+          <th>Created At</th>
+        </tr>
+        {response.map((user) => (
+          <tr>
+            <td>{user.email}</td>
+            <td>{user.name}</td>
+            <td>{user.createdAt}</td>
+          </tr>
+        ))}
+      </table>
     </div>
   );
 };
