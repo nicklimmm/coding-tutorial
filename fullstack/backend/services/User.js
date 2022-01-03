@@ -1,6 +1,7 @@
 const { db } = require("../models");
 const bcrypt = require("bcrypt");
 const { Op } = require("sequelize/dist");
+const jwt = require("jsonwebtoken");
 
 const hashPassword = async (password) => {
   const saltRounds = 10;
@@ -71,6 +72,9 @@ const login = async (email, password) => {
   }
 
   console.log(`User ${email} logged in`);
+
+  const token = jwt.sign({ email }, process.env.SECRET_KEY);
+  return token;
 };
 
 const getAllUsers = async ({ emailKeyword = "%" }) => {

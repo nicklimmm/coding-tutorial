@@ -4,13 +4,17 @@ import axios from "axios";
 const AuthContext = createContext(null);
 
 export const AuthProvider = (props) => {
-  const [auth, setAuth] = useState({ email: "", isLoggedIn: false });
+  const [auth, setAuth] = useState({
+    email: "",
+    isLoggedIn: false,
+    token: null,
+  });
   const [loading, setLoading] = useState(true);
 
   // During startup, load user from localStorage
   useEffect(() => {
     const email = localStorage.getItem("email");
-    if (email) setAuth({ email, isLoggedIn: true });
+    if (email) setAuth({ email, isLoggedIn: true, token: null });
     setLoading(false);
   }, []);
 
@@ -24,22 +28,23 @@ export const AuthProvider = (props) => {
 
   const login = async (email, password) => {
     // Make a request
-    await axios.post("http://127.0.0.1:8000/auth/login", {
+    const res = await axios.post("http://127.0.0.1:8000/auth/login", {
       email,
       password,
     });
 
     // If succeed, set auth state and save it into localStorage
     setAuth({
-      email: email,
+      email,
       isLoggedIn: true,
+      token: res.data.token,
     });
     localStorage.setItem("email", email);
   };
 
   const logout = () => {
     // Reset state and remove email from localStorage
-    setAuth({ email: "", isLoggedIn: false });
+    setAuth({ email: "", isLoggedIn: false, token: null });
     localStorage.removeItem("email");
   };
 

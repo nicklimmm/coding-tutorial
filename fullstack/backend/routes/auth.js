@@ -9,7 +9,7 @@ router.post("/register", async (req, res) => {
       req.body.email,
       req.body.password
     );
-    res.json("Register success!");
+    res.json({ message: "Register successful!" });
   } catch (err) {
     res.status(422).json(err.message);
   }
@@ -17,8 +17,8 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
-    await UserService.login(req.body.email, req.body.password);
-    res.json("Login success!");
+    const token = await UserService.login(req.body.email, req.body.password);
+    res.json({ message: "Login successful!", token });
   } catch (err) {
     res.status(422).json(err.message);
   }

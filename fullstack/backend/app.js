@@ -4,6 +4,9 @@ const auth = require("./routes/auth");
 const db = require("./models");
 const cors = require("cors");
 
+// Load environment variables
+require("dotenv").config();
+
 const app = express();
 
 app.use(express.json());
