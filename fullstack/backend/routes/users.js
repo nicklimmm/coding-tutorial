@@ -1,8 +1,13 @@
 const express = require("express");
+const { checkJwt } = require("../middlewares/auth");
 const router = express.Router();
 const UserService = require("../services/User");
 
-router.get("/", async (req, res) => {
+// Protect all routes under this file
+// router.use(checkJwt)
+
+// Protected route
+router.get("/", checkJwt, async (req, res) => {
   try {
     console.log(req.query.email);
     const users = await UserService.getAllUsers({

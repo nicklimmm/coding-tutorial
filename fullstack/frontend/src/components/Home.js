@@ -1,12 +1,19 @@
 import { useState } from "react";
 import { Formik, Field, Form } from "formik";
 import axios from "axios";
+import { useAuth } from "../auth";
 
 const Home = () => {
   const [response, setResponse] = useState([]);
+  const { auth } = useAuth();
 
   const getUsers = async ({ email }) => {
-    const res = await axios.get(`http://127.0.0.1:8000/users?email=${email}`);
+    console.log(auth.token);
+    const res = await axios.get(`http://127.0.0.1:8000/users?email=${email}`, {
+      headers: {
+        authorization: `Bearer ${auth.token}`,
+      },
+    });
     setResponse(res.data);
   };
 

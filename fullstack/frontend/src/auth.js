@@ -11,10 +11,11 @@ export const AuthProvider = (props) => {
   });
   const [loading, setLoading] = useState(true);
 
-  // During startup, load user from localStorage
+  // During startup, load from localStorage
   useEffect(() => {
     const email = localStorage.getItem("email");
-    if (email) setAuth({ email, isLoggedIn: true, token: null });
+    const token = localStorage.getItem("token");
+    if (email) setAuth({ email, isLoggedIn: true, token });
     setLoading(false);
   }, []);
 
@@ -28,10 +29,14 @@ export const AuthProvider = (props) => {
 
   const login = async (email, password) => {
     // Make a request
-    const res = await axios.post("http://127.0.0.1:8000/auth/login", {
-      email,
-      password,
-    });
+    const res = await axios.post(
+      "http://127.0.0.1:8000/auth/login",
+      {
+        email,
+        password,
+      },
+      { withCredentials: true }
+    );
 
     // If succeed, set auth state and save it into localStorage
     setAuth({
@@ -40,11 +45,13 @@ export const AuthProvider = (props) => {
       token: res.data.token,
     });
     localStorage.setItem("email", email);
+    localStorage.setItem("token", res.data.token);
   };
 
   const logout = () => {
     // Reset state and remove email from localStorage
     setAuth({ email: "", isLoggedIn: false, token: null });
+    localStorage.removeItem("token");
     localStorage.removeItem("email");
   };
 

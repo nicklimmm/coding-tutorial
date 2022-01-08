@@ -3,6 +3,7 @@ const users = require("./routes/users");
 const auth = require("./routes/auth");
 const db = require("./models");
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 // Load environment variables
 require("dotenv").config();
@@ -10,6 +11,7 @@ require("dotenv").config();
 const app = express();
 
 app.use(express.json());
+app.use(cookieParser());
 
 // Handle CORS
 const whitelist = ["http://localhost:3000"]; // lists of allowed domains
@@ -21,6 +23,7 @@ const corsOptions = {
       callback(new Error("Not allowed by CORS"));
     }
   },
+  credentials: true,
 };
 app.use(cors(corsOptions));
 
