@@ -12,6 +12,18 @@ const hashPassword = async (password) => {
   return hash;
 };
 
+const generateAccessToken = (payload) => {
+  return jwt.sign(payload, process.env.ACCESS_TOKEN_SECRET, {
+    expiresIn: "5s",
+  });
+};
+
+const generateRefreshToken = (payload) => {
+  return jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, {
+    expiresIn: "7d",
+  });
+};
+
 const register = async (name, email, password) => {
   // Make sure that the fields are not empty
   if (name.length === 0 || email.length === 0 || password.length === 0) {
@@ -73,8 +85,9 @@ const login = async (email, password) => {
 
   console.log(`User ${email} logged in`);
 
-  const token = jwt.sign({ email }, process.env.SECRET_KEY);
-  return token;
+  const accessToken = generateAccessToken({ email });
+  const refreshToken = generateRefreshToken({ email });
+  return { accessToken, refreshToken };
 };
 
 const getAllUsers = async ({ emailKeyword = "%" }) => {
@@ -98,4 +111,5 @@ module.exports = {
   register,
   login,
   getAllUsers,
+  generateAccessToken,
 };

@@ -16,13 +16,14 @@ app.use(cookieParser());
 // Handle CORS
 const whitelist = ["http://localhost:3000"]; // lists of allowed domains
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  // origin: function (origin, callback) {
+  //   if (whitelist.indexOf(origin) !== -1) {
+  //     callback(null, true);
+  //   } else {
+  //     callback(new Error("Not allowed by CORS"));
+  //   }
+  // },
+  origin: true,
   credentials: true,
 };
 app.use(cors(corsOptions));
@@ -35,7 +36,7 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-const server = app.listen(8000, "localhost", async () => {
+const server = app.listen(8000, "127.0.0.1", async () => {
   const host = server.address().address;
   const port = server.address().port;
 

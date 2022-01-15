@@ -26,22 +26,25 @@ export const AuthProvider = (props) => {
   };
 
   const login = async (email, password) => {
-    await api.post("/auth/login", { email, password });
+    const res = await api.post("/auth/login", { email, password });
 
     // If succeed, set auth state and save it into localStorage
     setAuth({
       email,
       isLoggedIn: true,
+      refreshToken: res.data.refreshToken,
     });
     localStorage.setItem("email", email);
+    localStorage.setItem("refreshToken", res.data.refreshToken);
   };
 
   const logout = async () => {
     // Make a request
-    await api.post("http://localhost:8000/auth/logout", {});
+    await api.post("/auth/logout", {});
     // Reset state and remove email from localStorage
     setAuth({ email: "", isLoggedIn: false });
     localStorage.removeItem("email");
+    localStorage.removeItem("refreshToken");
   };
 
   return (
